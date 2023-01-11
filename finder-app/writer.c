@@ -2,6 +2,8 @@
 #include <sys/klog.h>
 #include <stdio.h>
 #include <syslog.h>
+#include <stdlib.h>
+
 void openlog(const char *ident, int option, int facility);
 void syslog(int priority, const char *format, ...);
 int main (int argc , char **argv){
@@ -18,6 +20,7 @@ int main (int argc , char **argv){
 		printf("ERROR: Invalid Number of Arguments.\nTotal number of arguments should be 2.\nThe order of the arguments should be:\n1)File Directory Path.\n2)String to be searched in the specified path.\n");
 		openlog(NULL,0,LOG_USER);
 		syslog(LOG_ERR,"invalid number of arguments : %d",argc);
+		exit (1);
 	}
 	return 0;
 }
