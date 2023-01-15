@@ -1,8 +1,8 @@
 #!/bin/sh
 # Tester script for assignment 1 and assignment 2
 # Author: Siddhant Jajoo
-rm -f *.o writer
-make writer
+#rm -f *.o writer
+#make writer
 set -e
 set -u
 
