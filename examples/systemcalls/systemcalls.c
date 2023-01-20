@@ -5,6 +5,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+<<<<<<< HEAD
 /**
  * Author: Venkat Sai Krishna Tata
  * Date: 09/10/2021
@@ -13,6 +14,8 @@
  * Reference : https://stackoverflow.com/a/13784315/1446624
  * 			   Dan Walkes' starter code present in systemcalls.c  
 */
+=======
+>>>>>>> 7fc50bb9bfe37ebc56421ac53c7e33b3040ad359
 
 /**
  * @param cmd the command to execute with system()
@@ -23,6 +26,7 @@
 */
 bool do_system(const char *cmd)
 {
+<<<<<<< HEAD
 	int ret_val=system(cmd);
 	
 	//On an invocation of system with a non- NULL command, zero value returned when shell is available
@@ -31,6 +35,13 @@ bool do_system(const char *cmd)
 	if(ret_val == 0 && cmd==NULL)
 		return false;
 	else if (ret_val == -1 || ret_val ==127)
+=======
+	int ret=system(cmd);
+	
+	if(ret == 0 && cmd==NULL)
+		return false;
+	else if (ret == -1 || ret ==127)
+>>>>>>> 7fc50bb9bfe37ebc56421ac53c7e33b3040ad359
 		return false;
 	else
     return true;
@@ -83,9 +94,13 @@ bool do_exec(int count, ...)
 			exit(EXIT_FAILURE);
 	}
 	
+<<<<<<< HEAD
 	//Wait for child to terminate, returns -1 on error of any sort
 	//else returns the exit code after replacing the child process and running the command provided in the shell
 	//of the child. Based on the exit code, if command successfully executed, returns true else false
+=======
+	
+>>>>>>> 7fc50bb9bfe37ebc56421ac53c7e33b3040ad359
 	if (waitpid (-1, &child_status, 0) == -1)
 			exec_ret_value=0;
 	else if (WIFEXITED (child_status))
@@ -144,9 +159,12 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
 			exit(EXIT_FAILURE);
 	}
 	
+<<<<<<< HEAD
 	//Wait for child to terminate, returns -1 on error of any sort
 	//else returns the exit code after replacing the child process and running the command provided in the shell
 	//of the child. Based on the exit code, if command successfully executed, returns true else false
+=======
+>>>>>>> 7fc50bb9bfe37ebc56421ac53c7e33b3040ad359
 
 	if (waitpid (-1, &child_status, 0) == -1)
 			exec_ret_value=0;
@@ -163,7 +181,10 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
 	//Return true or false based on the success of execution of provided command
     va_end(args);
     
+<<<<<<< HEAD
     //Close the file descriptor
+=======
+>>>>>>> 7fc50bb9bfe37ebc56421ac53c7e33b3040ad359
     close(fd);
     return exec_ret_value;
 }
