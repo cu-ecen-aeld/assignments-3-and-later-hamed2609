@@ -114,16 +114,16 @@ sudo mknod -m 666 dev/console c 5 1
 # TODO: Clean and build the writer utility
 cd "${OUTDIR}"/rootfs/home
 rm -f *.o writer
-sudo cp /home/hamed/assignments/assignments-3-and-later-hamed2609/finder-app/writer.c "${OUTDIR}"/rootfs/home
+cp finder-app/writer.c "${OUTDIR}"/rootfs/home
 aarch64-none-linux-gnu-gcc -g -Wall -c writer.c -o writer.o
 aarch64-none-linux-gnu-gcc -g -Wall writer.o -o writer
 
 # TODO: Copy the finder related scripts and executables to the /home directory
 # on the target rootfs
-sudo cp /home/hamed/assignments/assignments-3-and-later-hamed2609/finder-app/finder.sh "${OUTDIR}"/rootfs/home
-sudo cp /home/hamed/assignments/assignments-3-and-later-hamed2609/finder-app/finder-test.sh "${OUTDIR}"/rootfs/home
-sudo cp -R /home/hamed/assignments/assignments-3-and-later-hamed2609/conf "${OUTDIR}"/rootfs/home
-sudo cp /home/hamed/assignments/assignments-3-and-later-hamed2609/finder-app/autorun-qemu.sh "${OUTDIR}"/rootfs/home
+cp finder-app/finder.sh "${OUTDIR}"/rootfs/home
+cp finder-app/finder-test.sh "${OUTDIR}"/rootfs/home
+cp -R /conf/username.txt "${OUTDIR}"/rootfs/home
+cp finder-app/autorun-qemu.sh "${OUTDIR}"/rootfs/home
 
 # TODO: Chown the root directory
 cd "${OUTDIR}"/rootfs/
